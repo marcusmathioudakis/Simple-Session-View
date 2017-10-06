@@ -89,6 +89,24 @@ h3 {
 
 .button.playing .icon {
   background-image: url(./images/icons/pause.svg);
+  background-size: 50px 50px; 
+  padding: 50px 45px 52px 48px;
+}
+
+#t1 .button.playing {
+  background-color: #A34BAD;
+}
+
+#t2 .button.playing {
+  background-color: #F14080;
+}
+
+#t3 .button.playing {
+  background-color: #FF39D4;
+}
+
+#t4 .button.playing {
+  background-color: #D86CE4;
 }
 
 .button.queued {
