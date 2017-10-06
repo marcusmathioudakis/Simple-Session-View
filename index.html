@@ -2,7 +2,7 @@
 
 <head>
 
-<title>Simple Sampler.html</title>
+<title>Simple Session View.html</title>
   <meta charset = "UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="./styles/index.css" rel="stylesheet" type="text/css">
@@ -15,87 +15,91 @@
 
     <div class="flex-container-row text">
       <div class="item">
-        <h1>A Basic Session View</h1>
+        <h1>A Simple Session View</h1>
         <h3> Each of the boxes below contains a small piece of music. Click a box to turn it on or off, 
           and use the colored boxes to add effects to each of the pieces.</h3>
         </div>
       </div>
 
-      <div id="samplerGrid" class="flex-container-row center-contents">
+      <div id="playerGrid" class="flex-container-row center-contents">
 
-        <div class="flex-container-column center track" index="1">
+        <div class="flex-container-column center track" id="t1">
           <div class="label">
-            Drums
+            Drums 
           </div>
-          <div class="button playButton sampler" index="1">
+          <div id="t1p1" class="button playButton player" url="./sounds/drums1.wav">
             <i class="icon-play icon"></i>
           </div>
-          <div class="button playButton sampler" index="2">
+          <div id="t1p2" class="button playButton player" url="./sounds/drums2.wav">
             <i class="icon-play icon"></i>
           </div>
-          <div class="button playButton sampler" index="3">
+          <div id="t1p3" class="button playButton player" url="./sounds/drums3.wav">
             <i class="icon-play icon"></i>
           </div>
-          <div class="button playButton sampler" index="4">
+          <div id="t1p4" class="button playButton player" url="./sounds/drums4.wav">
             <i class="icon-play icon"></i>
           </div>
-        </div>
+        </div> 
 
-        <div class="flex-container-column center track" index="2">
+        <div class="flex-container-column center track" id="t2">
           <div class="label">
             Bass
           </div>
-          <div class="button playButton sampler" index="1">
+          <div id="t2p1" class="button playButton player" url="./sounds/bass1.wav">
             <i class="icon-play icon"></i>
           </div>
-          <div class="button playButton sampler" index="2">
+          <div id="t2p2" class="button playButton player" url="./sounds/bass2.wav">
             <i class="icon-play icon"></i>
           </div>
-          <div class="button playButton sampler" index="3">
+          <div id="t2p3" class="button playButton player" url="./sounds/bass3.wav">
             <i class="icon-play icon"></i>
           </div>
-          <div class="button playButton sampler" index="4">
+          <div id="t2p4" class="button playButton player" url="./sounds/bass4.wav">
             <i class="icon-play icon"></i>
           </div>
         </div>
 
-        <div class="flex-container-column center track" index="3">
+        <div class="flex-container-column center track" id="t3">
           <div class="label">
             Chords
           </div>
-          <div class="button playButton sampler" index="1">
+          <div id="t3p1" class="button playButton player" url="./sounds/chords1.wav">
             <i class="icon-play icon"></i>
           </div>
-          <div class="button playButton sampler" index="2">
+          <div id="t3p2" class="button playButton player" url="./sounds/chords2.wav">
             <i class="icon-play icon"></i>
           </div>
-          <div class="button playButton sampler" index="3">
+          <div id="t3p3" class="button playButton player" url="./sounds/chords3.wav">
             <i class="icon-play icon"></i>
           </div>
-          <div class="button playButton sampler" index="4">
+          <div id="t3p4" class="button playButton player" url="./sounds/chords4.wav">
             <i class="icon-play icon"></i>
           </div>
         </div>
 
-        <div class="flex-container-column center track" index="4">
+        <div class="flex-container-column center track" id="t4">
           <div class="label">
             Melodies
           </div>
-          <div class="button playButton sampler" index="1">
+          <div id="t4p1" class="button playButton player" url="./sounds/melody1.wav">
             <i class="icon-play icon"></i>
           </div>
-          <div class="button playButton sampler" index="2">
+          <div id="t4p2" class="button playButton player" url="./sounds/melody2.wav">
             <i class="icon-play icon"></i>
           </div>
-          <div class="button playButton sampler" index="3">
+          <div id="t4p3" class="button playButton player" url="./sounds/melody3.wav">
             <i class="icon-play icon"></i>
           </div>
-          <div class="button playButton sampler" index="4">
+          <div id="t4p4" class="button playButton player" url="./sounds/melody4.wav">
             <i class="icon-play icon"></i>
           </div>
         </div>
 
       </div>
 
+      <script src="./scripts/libraries/Tone.min.js"></script>
+      <script src="./scripts/session-track.js"></script>
+      <script src="./scripts/session-track-collection.js"></script>
+      <script src="./scripts/index.js"></script>
     </body>
     </html>

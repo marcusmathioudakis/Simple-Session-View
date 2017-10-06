@@ -83,11 +83,16 @@ h3 {
   background: #C8C8C8;
 }
 
-.button .icon-play {
+.button .icon {
   background-image: url(./images/icons/play.svg);
 }
-.button .icon-pause {
+
+.button.playing .icon {
   background-image: url(./images/icons/pause.svg);
+}
+
+.button.queued {
+  background-color: green;
 }
 
 /* Small Screens */
