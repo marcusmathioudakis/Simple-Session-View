@@ -72,6 +72,9 @@ class SessionTrack {
 	the transport.
 	**/
 	stop(playerId, stopTransport = false) {
+		//queue this player to stop
+		var button = document.querySelector("#" + playerId);
+		button.className += " queued";
 		var track = this;
 		Tone.Transport.scheduleOnce(function(time) {
 			// stop the sample player

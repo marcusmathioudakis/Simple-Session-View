@@ -89,7 +89,7 @@ h3 {
 
 .button.playing .icon {
   background-image: url(./images/icons/pause.svg);
-  background-size: 50px 50px; 
+  background-size: 40px 40px; 
   padding: 50px 45px 52px 48px;
 }
 
@@ -109,9 +109,20 @@ h3 {
   background-color: #D86CE4;
 }
 
-.button.queued {
-  background-color: green;
+/**blinking button animation**/
+.track .button.playing.queued, 
+.track .button.queued  {
+  -webkit-animation: blink 1s infinite;  /* Safari 4+ */
+  -moz-animation: blink 1s infinite;  /* Fx 5+ */
+  -o-animation: blink 1s infinite;  /* Opera 12+ */
+  animation: blink 1s infinite;  /* IE 10+, Fx 29+ */
 }
+
+@-webkit-keyframes blink {
+  from {background-color: #10A4EE;}
+    to {background-color: #7FFFFF;}
+}
+/**End blinking button animation**/
 
 /* Small Screens */
 @media all and (max-width: 500px) {
@@ -121,5 +132,6 @@ h3 {
   .flex-container-row {margin-bottom: 10px;}
   .button {width: 65px; height: 65px;}
   .button .icon { padding: 23px 23px 50px 50px; }
+  .button.playing .icon { padding: 23px 15px 50px 50px; }
 }
 /* End Small Screens */
