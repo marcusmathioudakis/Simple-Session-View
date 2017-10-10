@@ -11,6 +11,18 @@ class SessionTrack {
 		this.currentPlayerId = null;
 		//Id of player that is queued to start at next measure
 		this.nextPlayerId = null;
+
+		//Effects
+		this.gain = Tone.context.createGain();
+		this.gain.gain.value = 0.7;
+		this.distortion = new Tone.Distortion(0.0);
+		this.delay = new Tone.FeedbackDelay("8n", 0);
+		this.reverb = new Tone.JCReverb(0);
+
+		this.distortion.connect(this.delay);
+		this.delay.connect(this.reverb);
+		this.reverb.connect(this.gain);
+		this.gain.toMaster();
 	}
 
 	/**
@@ -20,7 +32,23 @@ class SessionTrack {
 		this.players.add(playerId, url);
 		var player = this.players.get(playerId);	
 		player.loop = true;
-		player.toMaster();
+		player.connect(this.distortion);
+	}
+
+	setEffectValue(effectName, value){
+		if(effectName == "gain") {
+			this.gain.gain.value = value;
+		}
+		else if(effectName == "distortion") {
+			this.distortion.distortion = value;
+		}
+		else if (effectName == "delay") {
+			this.delay.feedback.value = value;
+			this.delay.delayTime.value = "8n"; 
+		}
+		else if (effectName == "reverb") {
+			this.reverb.roomSize.value = value;
+		}
 	}
 
 	/**

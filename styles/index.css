@@ -45,6 +45,9 @@ h3 {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.section {
   margin-bottom: 30px;
 }
 
@@ -62,7 +65,7 @@ h3 {
   margin-bottom: 20px;
 }
 
-.button {
+.grid-tile {
   height: 94px;
   width: 94px;
   background: #858585;
@@ -93,19 +96,19 @@ h3 {
   padding: 50px 45px 52px 48px;
 }
 
-#t1 .button.playing {
+#t1 .button.playing, .t1.grid-tile {
   background-color: #A34BAD;
 }
 
-#t2 .button.playing {
+#t2 .button.playing, .t2.grid-tile {
   background-color: #F14080;
 }
 
-#t3 .button.playing {
+#t3 .button.playing,  .t3.grid-tile {
   background-color: #FF39D4;
 }
 
-#t4 .button.playing {
+#t4 .button.playing,  .t4.grid-tile {
   background-color: #D86CE4;
 }
 
@@ -124,14 +127,19 @@ h3 {
 }
 /**End blinking button animation**/
 
+.dial-container {
+  padding: 7px; 
+}
+
 /* Small Screens */
 @media all and (max-width: 500px) {
   #main-container { padding: 20px; }
   h1 { font-size: 30px; }
   h3 { font-size: 18px; }
-  .flex-container-row {margin-bottom: 10px;}
-  .button {width: 65px; height: 65px;}
+  .section {margin-bottom: 10px;}
+  .grid-tile {width: 65px; height: 65px;}
   .button .icon { padding: 23px 23px 50px 50px; }
   .button.playing .icon { padding: 23px 15px 50px 50px; }
 }
 /* End Small Screens */
+

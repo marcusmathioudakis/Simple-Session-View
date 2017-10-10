@@ -1,5 +1,5 @@
 /**
-class representing a collection of tracks, each of which is made up of a collection of sampe players. 
+class representing a collection of tracks, each of which is made up of a collection of sample players. 
 Uses Tone.Transport in Tone.js to achieve grid aligned sample playback between tracks.
 **/
 class SessionTrackCollection {
@@ -34,11 +34,16 @@ class SessionTrackCollection {
 		this.activeTrackIds.delete(trackId);
 		var stopTransport = false;
 		// if we are stopping the last track then 
-		// stop the transport
+		// stop the transport.
 		if (this.activeTrackIds.size == 0) {
 			stopTransport = true;
 		}
 		track.stop(playerId, stopTransport);
+	}
+
+	setEffectValueForTrack(effectName, trackId, value) {
+		var track = this.tracks.get(trackId);
+		track.setEffectValue(effectName, value);
 	}
 
 }

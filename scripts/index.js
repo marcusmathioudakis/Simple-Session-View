@@ -26,4 +26,45 @@ trackElements.forEach(function(trackElement) {
 
 }); 
 
+// Create Effects controls
+document.querySelectorAll(".effect-controls").forEach(function(effectControls) {
+	var effectName = effectControls.getAttribute("effect-name");
+	var fgColor = "white";
+	switch(effectName) {
+		case "gain":
+		fgColor = "#A6BE00";
+		break;
+		case "distortion":
+		fgColor = "#3DC300";
+		break;
+		case "delay":
+		fgColor = "#25FFA8";
+		break;
+		case "reverb":
+		fgColor = "#1AFF2F";
+		break;
+	}
+	effectControls.querySelectorAll(".dial-container")
+	.forEach(function(element){
+		var trackId = element.getAttribute("track-id");
+		$(element).find(".dial").knob({
+			'min': 0,
+			'max' : 1,
+			'step' : 0.01,
+			'displayInput' : false,
+			'fgColor' : fgColor,
+			'change' : function (value) {
+				trackCollection.setEffectValueForTrack(effectName, trackId, value)
+			}
+		});
+	});
+});
+
+
+
+
+
+
+
+
 
