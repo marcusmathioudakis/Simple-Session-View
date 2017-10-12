@@ -64,6 +64,13 @@ document.querySelectorAll(".effect-controls").forEach(function(effectControls) {
 	});
 });
 
+// once all audio buffers loaded render the playback and effect controls
+Tone.Buffer.on('load', function(){
+	document.querySelector("#loader").className += " hidden";
+	document.querySelector("#player-grid").classList.remove("hidden");
+	document.querySelector("#effects-grid").classList.remove("hidden-but-rendered");
+})
+
 
 
 

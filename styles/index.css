@@ -30,6 +30,7 @@ h3 {
   font-weight: normal;
 }
 
+
 #main-container {
   max-width: 1300px;
   margin: auto;
@@ -127,6 +128,26 @@ h3 {
 }
 /**End blinking button animation**/
 
+/**loader animation**/
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #858585; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/**End loader animation**/
+
+
 .dial-container {
   padding: 7px; 
 }
@@ -142,4 +163,16 @@ h3 {
   .button.playing .icon { padding: 23px 15px 50px 50px; }
 }
 /* End Small Screens */
+
+.hidden {
+  display: none;
+}
+
+/** 
+element is hidden but still affects the page layout. 
+Useful for hiding elements which if hidden with display: none don't render properly.
+**/
+.hidden-but-rendered {
+  visibility: hidden;
+}
 
