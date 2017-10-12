@@ -24,6 +24,9 @@ class SessionTrackCollection {
 		// if no tracks playing restart the transport
 		if (this.activeTrackIds.size == 0) {
 			Tone.Transport.start();
+			if (LOG_DATA) {
+				console.log("Transport started at: " + Tone.context.currentTime);
+			}
 		}
 		this.activeTrackIds.add(trackId);
 		track.play(playerId);

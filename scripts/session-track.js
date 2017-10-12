@@ -82,14 +82,17 @@ class SessionTrack {
 				var nextPlayerId = track.nextPlayerId; 
 				var nextPlayer = track.players.get(nextPlayerId);
 				var nextPlayerButton = document.querySelector("#" + nextPlayerId);
-				nextPlayer.start();	
+				nextPlayer.start();
+				if (LOG_DATA){
+					console.log("player " + playerId + " started at: " + Tone.context.currentTime);
+				}
 				nextPlayerButton.classList.remove("queued");
 				nextPlayerButton.className += " playing";
 				//update the track
 				track.currentPlayerId = nextPlayerId;
 				track.nextPlayerId = null;
 				// this schedules the callback to be invoked at the start of the next measure
-			}, "@1m") 
+			}, "@1m")
 		}
 		this.nextPlayerId = playerId;
 	}
@@ -115,6 +118,9 @@ class SessionTrack {
 			
 			if (stopTransport) { 
 				Tone.Transport.stop();
+				if (LOG_DATA){
+					console.log("Transport stopped at: " + Tone.context.currentTime);
+				}
 			}
 		}, "@1m") 
 

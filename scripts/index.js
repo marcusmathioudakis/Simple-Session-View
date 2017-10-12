@@ -1,3 +1,7 @@
+
+// enables logging of timing related data.
+const LOG_DATA = false;
+
 //Map GUI elements to classes representing tracks and sample players
 const BPM = 102;
 var trackCollection = new SessionTrackCollection(BPM);
