@@ -75,16 +75,16 @@ class SessionTrack {
 				//stop the currently playing player
 				var currentPlayerId = track.currentPlayerId;
 				var currentPlayer = track.players.get(currentPlayerId);
-				currentPlayer.stop();
+				currentPlayer.stop(time);
 				var currentPlayerButton = document.querySelector("#" + currentPlayerId);
 				currentPlayerButton.classList.remove("playing");
 				//start the queued player
 				var nextPlayerId = track.nextPlayerId; 
 				var nextPlayer = track.players.get(nextPlayerId);
 				var nextPlayerButton = document.querySelector("#" + nextPlayerId);
-				nextPlayer.start();
+				nextPlayer.start(time);
 				if (LOG_DATA){
-					console.log("player " + playerId + " started at: " + Tone.context.currentTime);
+					console.log("player " + playerId + " started at: " + time);
 				}
 				nextPlayerButton.classList.remove("queued");
 				nextPlayerButton.className += " playing";
@@ -110,16 +110,19 @@ class SessionTrack {
 		Tone.Transport.scheduleOnce(function(time) {
 			// stop the sample player
 			var player = track.players.get(playerId);
-			player.stop();	
+			player.stop(time);	
+			if (LOG_DATA){
+				console.log("player " + playerId + " stopped at: " + time);
+			}
 			// update the button
 			var button = document.querySelector("#" + playerId);
 			button.classList.remove("playing");
 			button.classList.remove("queued");
 			
 			if (stopTransport) { 
-				Tone.Transport.stop();
+				Tone.Transport.stop(time);
 				if (LOG_DATA){
-					console.log("Transport stopped at: " + Tone.context.currentTime);
+					console.log("Transport stopped at: " + time);
 				}
 			}
 		}, "@1m") 
