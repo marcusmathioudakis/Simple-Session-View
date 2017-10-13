@@ -1,5 +1,5 @@
 
-// enables logging of timing related data.
+// enables logging of timing related data. Useful for debugging.
 const LOG_DATA = false;
 
 //Map GUI elements to classes representing tracks and sample players

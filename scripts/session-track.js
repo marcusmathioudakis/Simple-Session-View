@@ -31,7 +31,7 @@ class SessionTrack {
 	addPlayer(playerId, url) {
 		this.players.add(playerId, url);
 		var player = this.players.get(playerId);	
-		player.loop = true;
+		player.loop = false;
 		player.connect(this.distortion);
 	}
 
@@ -59,6 +59,7 @@ class SessionTrack {
 		if (this.currentPlayerId == null) {
 			this.currentPlayerId = playerId;
 		}
+		//update UI
 		//dequeue any other players that are queued to play
 		var trackElement = document.querySelector("#" + this.trackId);
 		trackElement.querySelectorAll(".queued").forEach(function(queuedPlayerElement) {
@@ -67,6 +68,7 @@ class SessionTrack {
 		//queue this player to play next
 		var nextPlayerButton = document.querySelector("#" + playerId);
 		nextPlayerButton.className += " queued";
+		
 		// if there are no queued players, then schedule the callback for changing players
 		// at the start of the next measure
 		var track = this;
@@ -76,24 +78,49 @@ class SessionTrack {
 				var currentPlayerId = track.currentPlayerId;
 				var currentPlayer = track.players.get(currentPlayerId);
 				currentPlayer.stop(time);
+				if (track.loop) {
+					track.loop.stop();
+				}
+				
+				//update UI
 				var currentPlayerButton = document.querySelector("#" + currentPlayerId);
 				currentPlayerButton.classList.remove("playing");
-				//start the queued player
+				
+				//start the queued player on the next measure
 				var nextPlayerId = track.nextPlayerId; 
 				var nextPlayer = track.players.get(nextPlayerId);
-				var nextPlayerButton = document.querySelector("#" + nextPlayerId);
 				nextPlayer.start(time);
 				if (LOG_DATA){
 					console.log("player " + playerId + " started at: " + time);
-				}
+				}	
+				//loop the player according to its length in measures
+				var playerDuration = Tone.Time(nextPlayer.buffer.duration).toNotation();
+				track.loop = new Tone.Loop(function(time) {
+					nextPlayer.start(time);
+					if (LOG_DATA){
+						console.log("player " + playerId + " started at: " + time);
+					}
+				}, playerDuration).start();
+				
+				//update UI
+				var nextPlayerButton = document.querySelector("#" + nextPlayerId);
 				nextPlayerButton.classList.remove("queued");
 				nextPlayerButton.className += " playing";
+				
 				//update the track
 				track.currentPlayerId = nextPlayerId;
 				track.nextPlayerId = null;
-				// this schedules the callback to be invoked at the start of the next measure
-			}, "@1m")
+			}, "@1m"); // schedules the callback to be invoked at the start of the next measure
+
+			
+			if (Tone.Transport.state != "started") {
+				Tone.Transport.start();
+				if (LOG_DATA) {
+					console.log("Transport started at: " + Tone.context.currentTime);
+				}
+			}
 		}
+
 		this.nextPlayerId = playerId;
 	}
 
@@ -111,15 +138,19 @@ class SessionTrack {
 			// stop the sample player
 			var player = track.players.get(playerId);
 			player.stop(time);	
+			track.loop.stop();
+			track.loop = null;
+			
 			if (LOG_DATA){
 				console.log("player " + playerId + " stopped at: " + time);
 			}
-			// update the button
+			// update UI
 			var button = document.querySelector("#" + playerId);
 			button.classList.remove("playing");
 			button.classList.remove("queued");
 			
 			if (stopTransport) { 
+				Tone.Transport.cancel();
 				Tone.Transport.stop(time);
 				if (LOG_DATA){
 					console.log("Transport stopped at: " + time);
