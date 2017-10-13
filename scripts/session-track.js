@@ -138,8 +138,10 @@ class SessionTrack {
 			// stop the sample player
 			var player = track.players.get(playerId);
 			player.stop(time);	
-			track.loop.stop();
-			track.loop = null;
+			if (track.loop) {
+				track.loop.stop();
+				track.loop = null;
+			}
 			
 			if (LOG_DATA){
 				console.log("player " + playerId + " stopped at: " + time);
