@@ -1,0 +1,51 @@
+.SamplePlayer .button .icon {
+  background-size: 70px 70px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 50px;
+  position: absolute;
+}
+
+.SamplePlayer .button.active {
+  background: #c8c8c8;
+}
+
+.SamplePlayer .button .icon {
+  background-image: url(./images/icons/play.svg);
+}
+
+.SamplePlayer .button.playing .icon {
+  background-image: url(./images/icons/pause.svg);
+  background-size: 40px 40px;
+  padding: 50px 45px 52px 48px;
+}
+
+/**blinking button animation**/
+.SamplePlayer .button.playing.queued,
+.SamplePlayer .button.queued {
+  -webkit-animation: blink 1s infinite; /* Safari 4+ */
+  -moz-animation: blink 1s infinite; /* Fx 5+ */
+  -o-animation: blink 1s infinite; /* Opera 12+ */
+  animation: blink 1s infinite; /* IE 10+, Fx 29+ */
+}
+
+@-webkit-keyframes blink {
+  from {
+    background-color: #10a4ee;
+  }
+  to {
+    background-color: #7fffff;
+  }
+}
+/**End blinking button animation**/
+
+/* Small Screens */
+@media all and (max-width: 500px) {
+  .SamplePlayer .button .icon {
+    padding: 23px 23px 50px 50px;
+  }
+  .SamplePlayer .button.playing .icon {
+    padding: 23px 15px 50px 50px;
+  }
+}
+/* End Small Screens */

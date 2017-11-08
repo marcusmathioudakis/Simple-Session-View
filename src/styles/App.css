@@ -1,0 +1,81 @@
+body {
+  color: #ffffff;
+  background-color: #666;
+}
+
+#main-container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 100px;
+}
+
+.flex-container-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-container-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.flex-container-row.center-contents {
+  justify-content: center;
+}
+
+.grid-tile {
+  height: 94px;
+  width: 94px;
+  background: #858585;
+  cursor: pointer;
+  cursor: hand;
+  margin: 1px;
+}
+
+.button.playing.track0,
+.EffectControlGrid .track0 {
+  background-color: #a34bad;
+}
+
+.button.playing.track1,
+.EffectControlGrid .track1 {
+  background-color: #f14080;
+}
+
+.button.playing.track2,
+.EffectControlGrid .track2 {
+  background-color: #ff39d4;
+}
+
+.button.playing.track3,
+.EffectControlGrid .track3 {
+  background-color: #d86ce4;
+}
+
+.dial-container {
+  padding: 7px;
+}
+
+/* Small Screens */
+@media all and (max-width: 500px) {
+  #main-container {
+    padding: 20px;
+  }
+  .section {
+    margin-bottom: 10px;
+  }
+  .grid-tile {
+    width: 65px;
+    height: 65px;
+  }
+}
+/* End Small Screens */
+
+.hidden {
+  display: none;
+}
