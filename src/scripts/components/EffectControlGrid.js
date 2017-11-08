@@ -15,6 +15,7 @@ export default function EffectControlGrid(props) {
 						key={effectIndex}
 					>
 						<EffectControl
+							effectName={effectName}
 							value={effectName === "gain" ? 0.5 : 0}
 							trackIndex={trackIndex}
 							onChange={value => {

@@ -1,40 +1,13 @@
-.EffectControl .slider {
-  width: 90%;
-  height: 100%;
-  -webkit-transform: rotate(270deg);
-  -webkit-appearance: none;
-  border-radius: 25px;
-  background: #666;
-  outline: none;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
-  cursor: pointer;
-  top: 34px;
-  position: relative;
-  left: 5%;
-}
-
-.EffectControl .slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  background: #ffffff;
-}
-
-.EffectControl .slider::-moz-range-thumb {
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  background: #ffffff;
+.EffectControl {
+    height: 20px;
+    width: 70px;
 }
 
 /* Small Screens */
 @media all and (max-width: 500px) {
-  .EffectControl .slider {
-    top: 19px;
-    left: 2px;
+  .EffectControl {
+    height: 20px;
+    width: 39px;
   }
+
 }
-/* End Small Screens */
