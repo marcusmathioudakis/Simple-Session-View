@@ -1,7 +1,7 @@
 # Grid Sampler
 A grid sampler with controllable effects, built using React.js, the Web Audio API and [Tone.js](https://github.com/Tonejs), and bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). Try it out [here](https://marcusmathioudakis.github.io/grid-sampler/).
 
-##Implementation details
+## Implementation details
 
 - Tone.js (https://github.com/Tonejs) is used to achieve bar-synchronised timing (it uses the Web Audio API clock which is much more precise than javascript's own), as well as for the sampler audio effects. Specifically with regards to timing, using the Tone.js Transport guarantees playback of a given sample starts and stops at bar boundaries - for details on this see [here](https://github.com/Tonejs/Tone.js/wiki/Transport) and [here](https://github.com/Tonejs/Tone.js/wiki/TransportTime).
 
@@ -9,11 +9,11 @@ A grid sampler with controllable effects, built using React.js, the Web Audio AP
 
 - As a sample can be started at any bar-aligned point with regards to the other samples, as well as stopped at any bar-aligned point within itself, the samples used need to be constructed in such a way that all these cases sound 'smooth' (i.e.no rhythmic or melodic dissonance).
 
-##Samples used
+## Samples used
 
 drum loops used are free samples from looperman.com, all other samples are my own.
 
-##Known issues (to be fixed soon):
+## Known issues (to be fixed soon):
 
 - Doesn't work on microsoft edge.
 - Untested on browsers beyond chrome and firefox.
