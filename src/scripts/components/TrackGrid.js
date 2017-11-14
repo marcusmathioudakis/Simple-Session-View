@@ -18,7 +18,6 @@ export default class TrackGrid extends Component {
 
   deactivateTrack(trackId) {
     this.activeTrackIds.delete(trackId);
-    return this.activeTrackIds.size;
   }
 
   render() {
@@ -28,11 +27,14 @@ export default class TrackGrid extends Component {
         index={index}
         samples={trackSamples}
         effectsNode={this.props.effectChains[index].getAudioNode()}
-        onPlay={id => {
+        activateTrack={id => {
           this.activateTrack(id);
         }}
-        onStop={id => {
-          return this.deactivateTrack(id);
+        deactivateTrack={id => {
+          this.deactivateTrack(id);
+        }}
+        getNumActiveTracks={() => {
+          return this.activeTrackIds.size;
         }}
       />
     ));

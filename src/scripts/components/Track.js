@@ -37,7 +37,7 @@ export default class Track extends Component {
 			queuedToPlayIndex: index,
 			queuedToStopIndex: this.state.currentPlayerIndex
 		});
-		this.props.onPlay(this.index);
+		this.props.activateTrack(this.index);
 		this.queueUpdateOnNextMeasure();
 
 		if (Tone.Transport.state !== "started") {
@@ -52,16 +52,14 @@ export default class Track extends Component {
 		this.setState({
 			queuedToStopIndex: this.state.currentPlayerIndex
 		});
-		const numActiveTracks = this.props.onStop(this.index);
-		// if there are no tracks left playing stop the transport.
-		this.queueUpdateOnNextMeasure(numActiveTracks === 0);
+		this.queueUpdateOnNextMeasure();
 	}
 
 	/**
 	update the sample players based on the queued actions,
 	at the start of the next measure.
 	**/
-	queueUpdateOnNextMeasure(stopTransport = false) {
+	queueUpdateOnNextMeasure() {
 		if (this.updateQueued) {
 			return;
 		}
@@ -89,7 +87,15 @@ export default class Track extends Component {
 						player.start(time);
 					}, playerDuration).start();
 				}
-				if (stopTransport) {
+				//if we're stopping this track
+				if (
+					this.state.queuedToStopIndex !== null &&
+					this.state.queuedToPlayIndex === null
+				) {
+					this.props.deactivateTrack(this.index);
+				}
+				//if no active tracks then stop the transport
+				if (this.props.getNumActiveTracks() === 0) {
 					Tone.Transport.cancel();
 					Tone.Transport.stop(time);
 				}
