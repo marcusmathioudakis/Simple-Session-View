@@ -2,22 +2,20 @@
   background-size: 70px 70px;
   background-position: center center;
   background-repeat: no-repeat;
-  padding: 50px;
-  position: absolute;
-}
-
-.SamplePlayer .button.active {
-  background: #c8c8c8;
-}
-
-.SamplePlayer .button .icon {
   background-image: url(./images/icons/play.svg);
+  height: 57px;
+  width: 36px;
+  margin-top: 14px;
 }
 
 .SamplePlayer .button.playing .icon {
   background-image: url(./images/icons/pause.svg);
-  background-size: 40px 40px;
-  padding: 50px 45px 52px 48px;
+  background-size: 50px 50px;
+  margin-top: 6px;
+}
+
+.SamplePlayer .button.active {
+  background: #c8c8c8;
 }
 
 /**blinking button animation**/
@@ -42,10 +40,11 @@
 /* Small Screens */
 @media all and (max-width: 500px) {
   .SamplePlayer .button .icon {
-    padding: 23px 23px 50px 50px;
+    background-size: 50px 50px;
+    margin-top: 10px;
   }
   .SamplePlayer .button.playing .icon {
-    padding: 23px 15px 50px 50px;
+    background-size: 35px 35px;
   }
 }
 /* End Small Screens */

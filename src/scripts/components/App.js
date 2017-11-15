@@ -29,19 +29,13 @@ export default class App extends Component {
 
   render() {
     return (
-      <div id="main-container" className="flex-container-column App">
-        <div>
-          <div className={this.state.loaded ? "hidden" : ""}>
-            <Loader />
-          </div>
-          <div className={!this.state.loaded ? "hidden" : ""}>
-            <TrackGrid
-              samples={samples}
-              effectChains={effectChains}
-              bpm={BPM}
-            />
-            <EffectControlGrid effectChains={effectChains} />
-          </div>
+      <div className="flex-container-column App">
+        <div className={this.state.loaded ? "hidden" : ""}>
+          <Loader />
+        </div>
+        <div className={!this.state.loaded ? "hidden" : ""}>
+          <TrackGrid samples={samples} effectChains={effectChains} bpm={BPM} />
+          <EffectControlGrid effectChains={effectChains} />
         </div>
       </div>
     );

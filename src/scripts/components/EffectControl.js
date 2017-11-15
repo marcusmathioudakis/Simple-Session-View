@@ -35,18 +35,18 @@ export default class EffectControl extends React.Component {
 					defaultValue={this.props.value}
 					railStyle={{
 						backgroundColor: "#A9A9A9",
-						height: "12px",
+						height: "8px",
 						borderRadius: "10px"
 					}}
 					trackStyle={{
 						backgroundColor: color,
-						height: "12px",
+						height: "8px",
 						borderRadius: "10px"
 					}}
 					handleStyle={{
-						height: "20px",
-						width: "20px",
-						border: "solid 1px black"
+						height: "18px",
+						width: "18px",
+						border: "0px"
 					}}
 					onChange={event => {
 						this.props.onChange(event);

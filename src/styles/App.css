@@ -1,12 +1,25 @@
-body {
-  color: #ffffff;
-  background-color: #666;
+/**Custom Fonts**/
+@font-face {
+  font-family: LatoLight;
+  src: url(./fonts/Lato-Light.ttf);
+}
+/**End Custom Fonts**/
+html,
+#root {
+  height: 100%;
 }
 
-#main-container {
-  max-width: 1300px;
-  margin: auto;
-  padding: 100px;
+body {
+  color: #ffffff;
+  background-color: #F2981B;
+  font-family: "LatoLight", Helvetica, Arial, sans-serif;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .flex-container-column {
@@ -20,10 +33,6 @@ body {
   align-items: center;
 }
 
-.section {
-  margin-bottom: 30px;
-}
-
 .flex-container-row.center-contents {
   justify-content: center;
 }
@@ -31,13 +40,17 @@ body {
 .grid-tile {
   height: 94px;
   width: 94px;
-  background: #858585;
+  background: #20828d;
   cursor: pointer;
   cursor: hand;
   margin: 1px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.EffectControlGrid .grid-tile {
+  height: 24px;
 }
 
 .button.playing.track0,
