@@ -89,6 +89,9 @@ body {
     width: 65px;
     height: 65px;
   }
+  .EffectControlGrid .grid-tile {
+    height: 50px;
+  }
 }
 /* End Small Screens */
 

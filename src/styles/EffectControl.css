@@ -1,13 +1,25 @@
 .EffectControl {
-    height: 20px;
-    width: 70px;
+	height: 20px;
+	width: 70px;
 }
 
 /* Small Screens */
 @media all and (max-width: 500px) {
-  .EffectControl {
-    height: 20px;
-    width: 39px;
-  }
+	.EffectControl {
+		height: 22px;
+		width: 39px;
+	}
+	/*!important neccessary as overriding plugin styles*/
+	.rc-slider-handle {
+		height: 20px !important;
+		width: 20px !important;
+	}
 
+	.EffectControl .rc-slider-rail {
+		height: 11px !important;
+	}
+
+	.EffectControl .rc-slider-track {
+		height: 11px !important;
+	}
 }
