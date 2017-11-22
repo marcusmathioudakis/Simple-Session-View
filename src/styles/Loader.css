@@ -1,13 +1,33 @@
+/*static vinyl css by Ana Tudor: https://codepen.io/thebabydino/pen/HjJlL*/
 .Loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #858585; /* Blue */
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
   animation: spin 2s linear infinite;
-  justify-content: center;
-  align-items: center;
-  display: flex;
+  width: 262px;
+  height: 262px;
+  border-radius: 50%;
+  background: linear-gradient(
+        30deg,
+        transparent 40%,
+        rgba(42, 41, 40, 0.85) 40%
+      )
+      no-repeat 100% 0,
+    linear-gradient(60deg, rgba(42, 41, 40, 0.85) 60%, transparent 60%)
+      no-repeat 0 100%,
+    repeating-radial-gradient(#2a2928, #2a2928 4px, #ada9a0 5px, #2a2928 6px);
+  background-size: 50% 100%, 100% 50%, 100% 100%;
+}
+
+.Loader:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -35px;
+  border: solid 1px #d9a388;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #da5b33, inset 0 0 0 27px #da5b33;
+  background: #b5ac9a;
+  content: "";
 }
 
 @keyframes spin {
