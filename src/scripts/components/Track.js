@@ -41,7 +41,8 @@ export default class Track extends Component {
 		this.queueUpdateOnNextMeasure();
 
 		if (Tone.Transport.state !== "started") {
-			Tone.Transport.start();
+			Tone.Transport.position = "0:0:0";
+			Tone.Transport.start("+0.1");
 		}
 	}
 
@@ -97,6 +98,7 @@ export default class Track extends Component {
 				//if no active tracks then stop the transport
 				if (this.props.getNumActiveTracks() === 0) {
 					Tone.Transport.cancel();
+					Tone.Transport.position = "0:0:0";
 					Tone.Transport.stop(time);
 				}
 				this.setState({
