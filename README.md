@@ -15,8 +15,6 @@ drum loops used are free samples from looperman.com, all other samples are my ow
 
 ## Known issues (to be fixed soon):
 
-- Doesn't work on microsoft edge.
-- Untested on browsers beyond chrome and firefox.
-- On mobile devices audio playback stutters when scrolling the page.
-- Better Reverb.
+- On some mobile devices audio playback stutters heavily, often stopping completely (also doesn't load on iphones). 
+- Untested on browsers beyond chrome and firefox (doesn't work on microsoft edge).
 

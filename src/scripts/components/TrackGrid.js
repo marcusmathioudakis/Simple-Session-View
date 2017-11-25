@@ -42,8 +42,7 @@ export default class TrackGrid extends Component {
 
     return (
       <div
-        id="player-grid"
-        className="flex-container-row center-contents section"
+        className="flex-container-row center-contents section TrackGrid"
       >
         {tracks}
       </div>
