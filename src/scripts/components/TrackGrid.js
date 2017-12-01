@@ -6,7 +6,6 @@ export default class TrackGrid extends Component {
   constructor(props) {
     super(props);
     Tone.Transport.bpm.value = props.bpm;
-    Tone.Transport.latencyHint = ".06";
     //stores Ids of tracks that are playing
     this.activeTrackIds = new Set();
     this.activateTrack = this.activateTrack.bind(this);
