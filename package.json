@@ -4,17 +4,20 @@
   "private": true,
   "homepage": "https://marcusmathioudakis.github.io/grid-sampler",
   "dependencies": {
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
     "gh-pages": "^1.0.0",
     "rc-slider": "^8.3.5",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.16",
+    "react-test-renderer": "^16.2.0",
     "tone": "^0.11.11"
   },
   "scripts": {
     "start": "cross-env NODE_PATH=src/scripts:src/styles react-scripts start",
     "build": "cross-env NODE_PATH=src/scripts:src/styles react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "cross-env NODE_PATH=src/scripts:src/styles react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"

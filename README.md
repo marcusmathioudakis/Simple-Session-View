@@ -1,5 +1,6 @@
 # Grid Sampler
-A grid sampler with controllable effects, built using React.js, the Web Audio API and [Tone.js](https://github.com/Tonejs), and bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). Try it out [here](https://marcusmathioudakis.github.io/grid-sampler/).
+
+A grid sampler with controllable effects, built using React.js, the Web Audio API and [Tone.js](https://github.com/Tonejs), and bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). Tested in Chrome and Firefox. Try it out [here](https://marcusmathioudakis.github.io/grid-sampler/).
 
 ## Implementation details
 
@@ -11,7 +12,16 @@ A grid sampler with controllable effects, built using React.js, the Web Audio AP
 
 
 ## Known issues (to be fixed soon):
+
 - Currently untested in safari as don't have access to an apple device atm. 
 - Broken in Microsoft Edge: WEBAUDIO17014: Decoding error: The stream provided is corrupt or unsupported.
 - On some mobile devices although UI behaves as expected audio playback stutters heavily, often stopping completely.
+- very low test coverage (see below).
+
+
+## Testing
+
+Using Jest with Enzyme for tests. To run test suite, execute "npm test" in the top level directory. At the moment test coverage is very low, in particular there are only shallow rendering tests, and only for those components not directly using Tone.js. Difficult to test (even shallow test) any component that uses Tone.js - this is because Tone.js uses Web Audio API methods that are not defined in jsdom, so when the tests are run using jsdom calling these methods throws an exception. Can mock the Web Audio API using "web-audio-mock-api", however this seems to still be missing some necessary methods. Thus for better test coverage, need to investigate running Jest with an environment implementing the Web Audio API, or most probably switch to another test runner that actually runs tests in the browser such as Mocha.
+
+
 
