@@ -9,12 +9,9 @@ A grid sampler with controllable effects, built using React.js, the Web Audio AP
 
 - As a sample can be started at any bar-aligned point with regards to the other samples, as well as stopped at any bar-aligned point within itself, the samples used need to be constructed in such a way that all these cases sound 'smooth' (i.e.no rhythmic or melodic dissonance).
 
-## Samples used
-
-drum loops used are free samples from looperman.com, all other samples are my own.
 
 ## Known issues (to be fixed soon):
-
-- On some mobile devices audio playback stutters heavily, often stopping completely (also doesn't load on iphones). 
-- Untested on browsers beyond chrome and firefox (doesn't work on microsoft edge).
+- Currently untested in safari as don't have access to an apple device atm. 
+- Broken in Microsoft Edge: WEBAUDIO17014: Decoding error: The stream provided is corrupt or unsupported.
+- On some mobile devices although UI behaves as expected audio playback stutters heavily, often stopping completely.
 
