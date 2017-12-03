@@ -2,13 +2,11 @@ import Tone from "tone";
 
 export default class EffectsChain {
 	constructor() {
-		this.effects = ["gain", "distortion", "delay", "reverb"];
+		this.effects = ["gain", "delay", "reverb"];
 		this.gain = Tone.context.createGain();
 		this.gain.gain.value = 0.7;
-		this.distortion = new Tone.Distortion(0.0);
 		this.delay = new Tone.FeedbackDelay("8n", 0);
 		this.reverb = new Tone.JCReverb(0);
-		this.distortion.connect(this.delay);
 		this.delay.connect(this.reverb);
 		this.reverb.connect(this.gain);
 		this.gain.toMaster();
@@ -21,8 +19,6 @@ export default class EffectsChain {
 	setEffectValue(effectName, value) {
 		if (effectName === "gain") {
 			this.gain.gain.value = value;
-		} else if (effectName === "distortion") {
-			this.distortion.distortion = value;
 		} else if (effectName === "delay") {
 			this.delay.feedback.value = value;
 			this.delay.delayTime.value = "8n";
@@ -36,6 +32,6 @@ export default class EffectsChain {
 	connect an audio source to this effects chain
 	**/
 	getAudioNode() {
-		return this.distortion;
+		return this.delay;
 	}
 }
