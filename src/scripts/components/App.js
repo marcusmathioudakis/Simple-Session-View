@@ -7,13 +7,13 @@ import EffectsChain from "EffectsChain";
 import Tone from "tone";
 
 const samples = [
-  ["drums1.ogg", "drums2.ogg", "drums3.ogg", "drums4.ogg"],
   ["bass1.ogg", "bass2.ogg", "bass3.ogg", "bass4.ogg"],
-  ["chords1.ogg", "chords2.ogg", "chords3.ogg", "chords4.ogg"],
-  ["melody1.ogg", "melody2.ogg", "melody3.ogg", "melody4.ogg"]
+  ["rhythm1.ogg", "rhythm2.ogg", "rhythm3.ogg", "rhythm4.ogg"],
+  ["pad1.ogg", "pad2.ogg", "pad3.ogg", "pad4.ogg"],
+  ["lead1.ogg", "lead2.ogg", "lead3.ogg", "lead4.ogg"]
 ];
 const effectChains = samples.map(() => new EffectsChain());
-const BPM = 102;
+const BPM = 135;
 
 export default class App extends Component {
   constructor(props) {
