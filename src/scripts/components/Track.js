@@ -19,6 +19,9 @@ export default class Track extends Component {
 				this.players.add(index, "./sounds/" + element);
 				var player = this.players.get(index);
 				player.loop = false;
+				//prevent clicks on starting/stopping a sample
+				player.fadeIn = "0.01";
+				player.fadeOut = "0.01";
 			}.bind(this)
 		);
 		if (props.effectsNode != null) {
